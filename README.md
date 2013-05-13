@@ -3,6 +3,17 @@ autolinks
 
 Automatically turn URL's into links
 
+Installation
+------------
+
+To use locally
+
+    npm install autolinks
+
+To use the command line tool `autolinks`
+
+    npm install -g autolinks
+
 Example
 -------
 
@@ -30,6 +41,14 @@ Usage
 - `fmt`: an optional format string (markdown, html, etc.) `html` is default
 
 returns the parsed string
+
+Command Line
+------------
+
+    $ echo 'a link to google http://www.google.com here' | autolinks
+    a link to google <a href="http://www.google.com">http://www.google.com</a> here
+    $ echo 'a link to google http://www.google.com here' | autolinks markdown
+    a link to google [http://www.google.com](http://www.google.com) here
 
 License
 -------
