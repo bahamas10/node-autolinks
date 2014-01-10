@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Automatically turn URL's into links
  *
@@ -7,23 +6,23 @@
  * License: MIT
  */
 
-var URIre = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
-var incompleteURIre = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-var mailre = /\w+@[a-zA-Z_]+?(?:\.[a-zA-Z]{2,6})+/gim;
+var URIre = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim
+  , incompleteURIre = /(^|[^\/])(www\.[\S]+(\b|$))/gim
+  , mailre = /\w+@[a-zA-Z_]+?(?:\.[a-zA-Z]{2,6})+/gim
+    // Does not match already marked-down links or image srcs
+  , mdURIre = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|](\b|$)(?![a-z0-9-+&@#\/%?=~_|!:,.;]*\))/gim
+  , mdIncompleteURIre = /(^|[^\/])(www\.[\S]+[a-z0-9-+&@#\/%=~_|](\b|$))(?![a-z0-9-+&@#\/%?=~_|!:,.;]*\))/gim
+  , autolinks;
 
-var formats = ['markdown', 'html'];
-
-module.exports = autolinks;
-
-function autolinks(s, type) {
+autolinks = function (s, type) {
   var ret = s;
   switch (type) {
     case 'markdown':
-      ret = s.replace(URIre, '[$&]($&)')
-             .replace(incompleteURIre, '$1[$2](http://$2)')
+      ret = s.replace(mdURIre, '[$&]($&)')
+             .replace(mdIncompleteURIre, '$1[$2](http://$2)')
              .replace(mailre, '[$&](mailto:$&)');
       break;
-    case 'html':
+    // html case will be handled by default
     default:
       ret = s.replace(URIre, '<a href="$&">$&</a>')
              .replace(incompleteURIre, '$1<a href="http://$2">$2</a>')
@@ -31,23 +30,7 @@ function autolinks(s, type) {
       break;
   }
   return ret;
-}
+};
 
-if (!module.parent) {
-  var arg = process.argv[2];
-  if (arg === '-h' || arg === 'help' || arg === 'formats') {
-    console.log([
-      'Usage: autolinks [format]',
-      '',
-      'Pipe data in to be auto linked over stdin',
-      '',
-      'Formats: (html is assumed)',
-      '  ' + formats.join(', ')
-    ].join('\n'));
-    process.exit(0);
-  }
-  process.stdin.resume();
-  process.stdin.on('data', function(data) {
-    process.stdout.write(autolinks(data.toString(), process.argv[2]));
-  });
-}
+module.exports = autolinks;
+
