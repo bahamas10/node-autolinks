@@ -30,6 +30,20 @@ test('a mailto link for dave@daveeddy.com here',
     }
 );
 
+test('an already formatted link to [google](http://google.com)',
+    {
+      html: 'an already formatted link to [google](<a href="http://google.com">http://google.com</a>)'
+    , markdown: 'an already formatted link to [google](http://google.com)'
+    });
+
+test('an already formatted relative link to [google](www.google.com)',
+    {
+      // This looks wrong (the close paran inside) but is actually correct, since parens
+      // are a valid URL character
+      html: 'an already formatted relative link to [google](<a href="http://www.google.com)">www.google.com)</a>'
+    , markdown: 'an already formatted relative link to [google](www.google.com)'
+    });
+
 function test(s, o) {
   console.log('===> %s <===', s);
   Object.keys(o).forEach(function(fmt) {
