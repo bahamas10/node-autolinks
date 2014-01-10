@@ -10,8 +10,8 @@ var URIre = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|
   , incompleteURIre = /(^|[^\/])(www\.[\S]+(\b|$))/gim
   , mailre = /\w+@[a-zA-Z_]+?(?:\.[a-zA-Z]{2,6})+/gim
     // Does not match already marked-down links or image srcs
-  , mdURIre = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|](\b|$)(?!\.|\)|\s+"[\w\d\s]*?"\s*\))/gim
-  , mdIncompleteURIre = /(^|[^\/])(www\.[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|])(\b|$)(?!\.|\)|\s+"[\w\d\s]*?"\s*\))/gim
+  , mdURIre = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|](\b|$)(?![a-z0-9-+&@#\/%?=~_|!:,.;]*\))/gim
+  , mdIncompleteURIre = /(^|[^\/])(www\.[\S]+[a-z0-9-+&@#\/%=~_|](\b|$))(?![a-z0-9-+&@#\/%?=~_|!:,.;]*\))/gim
   , autolinks;
 
 autolinks = function (s, type) {

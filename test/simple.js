@@ -16,6 +16,13 @@ test('a link to google: http://google.com here',
     }
 );
 
+test('a link with numbers: https://medium.com/life-at-obvious/3231f644a8b1 here',
+    {
+      html: 'a link with numbers: <a href="https://medium.com/life-at-obvious/3231f644a8b1">https://medium.com/life-at-obvious/3231f644a8b1</a> here',
+      markdown: 'a link with numbers: [https://medium.com/life-at-obvious/3231f644a8b1](https://medium.com/life-at-obvious/3231f644a8b1) here'
+    }
+);
+
 test('a relative link to google: www.google.com here',
     {
       html: 'a relative link to google: <a href="http://www.google.com">www.google.com</a> here',
@@ -34,6 +41,12 @@ test('an already formatted link to [google](http://google.com)',
     {
       html: 'an already formatted link to [google](<a href="http://google.com">http://google.com</a>)'
     , markdown: 'an already formatted link to [google](http://google.com)'
+    });
+
+test('an already formatted link that ends with numbers [Jank & Drank @ Medium](https://medium.com/life-at-obvious/3231f644a8b1)',
+    {
+      html: 'an already formatted link that ends with numbers [Jank & Drank @ Medium](<a href="https://medium.com/life-at-obvious/3231f644a8b1">https://medium.com/life-at-obvious/3231f644a8b1</a>)'
+    , markdown: 'an already formatted link that ends with numbers [Jank & Drank @ Medium](https://medium.com/life-at-obvious/3231f644a8b1)'
     });
 
 test('an already formatted relative link to [google](www.google.com)',
