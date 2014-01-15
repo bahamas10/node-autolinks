@@ -1,11 +1,11 @@
 {
   "name": "autolinks",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Automatically turn URL's into links",
   "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
   "main": "./autolinks.js",
   "bin": {
-    "autolinks": "./autolinks.js"
+    "autolinks": "./bin/autolinks.js"
   },
   "scripts": {
     "test": "for f in test/*; do echo \"$f\"; node \"$f\" || exit 1; done; echo Passed; exit 0"
