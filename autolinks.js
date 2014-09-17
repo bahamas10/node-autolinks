@@ -7,9 +7,9 @@
  * License: MIT
  */
 
-var URIre = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
+var URIre = /\b(?:https?|ftp):\/\/[a-z\u00c0-\u01bf0-9-+&@#\/%?=~_|!:,.;]*[a-z\u00c0-\u01bf0-9-+&@#\/%=~_|]/gim;
 var incompleteURIre = /(^|[^\/])(www\.[^\s)>]+(\b|$))/gim;
-var mailre = /\w+@[a-zA-Z_]+?(?:\.[a-zA-Z]{2,6})+/gim;
+var mailre = /\w+@[a-z\u00c0-\u01bf_]+?(?:\.[a-z\u00c0-\u01bf]{2,6})+/gim;
 
 var formats = {
   'html': function (title, url) {

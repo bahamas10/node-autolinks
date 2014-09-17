@@ -61,7 +61,16 @@ var data = [
 {
   input: 'a link http://google.com',
   custom: 'a link (TITLE http://google.com URL http://google.com)'
-}];
+},
+
+/*** Foreign characters ***/
+
+{
+  input: 'a link http://test.com/hallå.pdf',
+  custom: 'a link (TITLE http://test.com/hallå.pdf URL http://test.com/hallå.pdf)'
+}
+
+];
 
 describe('autolinks', function () {
 
