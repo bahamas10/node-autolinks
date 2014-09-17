@@ -15,20 +15,25 @@ var formats = ['markdown', 'html'];
 
 module.exports = autolinks;
 
-function autolinks(s, type) {
-  var ret = s;
-  switch (type) {
+function autolinks(s, format) {
+
+  if (format === undefined) {
+    format = 'html';
+  }
+
+  switch (format) {
     case 'markdown':
-      ret = s.replace(URIre, '[$&]($&)')
-             .replace(incompleteURIre, '$1[$2](http://$2)')
-             .replace(mailre, '[$&](mailto:$&)');
+      return s.replace(URIre, '[$&]($&)')
+              .replace(incompleteURIre, '$1[$2](http://$2)')
+              .replace(mailre, '[$&](mailto:$&)');
       break;
     case 'html':
-    default:
-      ret = s.replace(URIre, '<a href="$&">$&</a>')
-             .replace(incompleteURIre, '$1<a href="http://$2">$2</a>')
-             .replace(mailre, '<a href="mailto:$&">$&</a>');
+      return s.replace(URIre, '<a href="$&">$&</a>')
+              .replace(incompleteURIre, '$1<a href="http://$2">$2</a>')
+              .replace(mailre, '<a href="mailto:$&">$&</a>');
       break;
+    default:
+      throw new Error('Unkown format: ' + format);
   }
-  return ret;
+
 }
