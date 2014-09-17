@@ -78,6 +78,13 @@ describe('autolinks', function () {
     assert.equal(output, expected);
   });
 
+  it('should expose list of supported formats', function () {
+    var actual = autolinks.supportedFormats;
+    var expected = ['html', 'markdown'];
+
+    assert.deepEqual(actual.sort(), expected.sort());
+  });
+
   var formats = ['html', 'markdown', 'custom'];
   var formatArgument = {
     html: 'html',
