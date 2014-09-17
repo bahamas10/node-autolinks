@@ -3,6 +3,9 @@
   "version": "0.0.3",
   "description": "Automatically turn URL's into links",
   "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
+  "contributors": [
+    "Linus Unnebäck <linus@folkdatorn.se>"
+  ],
   "main": "./autolinks.js",
   "bin": {
     "autolinks": "./bin/autolinks.js"
