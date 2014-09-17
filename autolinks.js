@@ -5,6 +5,9 @@
  * Author: Dave Eddy <dave@daveeddy.com>
  * Date: 5/13/13
  * License: MIT
+ *
+ * Contributors:
+ *  - Linus Unnebäck <linus@folkdatorn.se>
  */
 
 var URIre = /\b(?:https?|ftp):\/\/[a-z\u00c0-\u01bf0-9-+&@#\/%?=~_|!:,.;]*[a-z\u00c0-\u01bf0-9-+&@#\/%=~_|]/gim;
