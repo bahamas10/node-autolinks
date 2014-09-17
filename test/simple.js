@@ -7,9 +7,9 @@ var data = [
 /*** General ***/
 
 {
-  input: 'no change',
-  html: 'no change',
-  markdown: 'no change'
+  input: 'a simple string',
+  html: 'a simple string',
+  markdown: 'a simple string'
 },{
   input: 'a link to google: http://google.com here',
   html: 'a link to google: <a href="http://google.com">http://google.com</a> here',
