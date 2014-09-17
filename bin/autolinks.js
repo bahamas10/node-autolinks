@@ -9,7 +9,7 @@
 
 var autolinks = require('../');
 var arg = process.argv[2];
-if (arg === '-h' || arg === 'help' || arg === 'formats') {
+if (arg === '-h' || arg === '--help' || arg === 'help' || arg === 'formats') {
   console.log([
       'Usage: autolinks [format]',
       '',
