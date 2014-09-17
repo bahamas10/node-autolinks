@@ -56,6 +56,8 @@ var data = [
   markdown: 'a relative link inside tags <[www.google.com](http://www.google.com)>.'
 },
 
+/*** Custom function ***/
+
 {
   input: 'a link http://google.com',
   custom: 'a link (TITLE http://google.com URL http://google.com)'
