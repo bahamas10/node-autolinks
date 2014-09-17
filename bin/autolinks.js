@@ -9,14 +9,14 @@
 
 var autolinks = require('../');
 var arg = process.argv[2];
-if (arg === '-h' || arg === 'help' || arg === 'formats') {
+if (arg === '-h' || arg === '--help' || arg === 'help' || arg === 'formats') {
   console.log([
       'Usage: autolinks [format]',
       '',
       'Pipe data in to be auto linked over stdin',
       '',
       'Formats: (html is assumed)',
-      '  ' + formats.join(', ')
+      '  ' + autolinks.supportedFormats.join(', ')
       ].join('\n'));
   process.exit(0);
 }

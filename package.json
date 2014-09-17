@@ -1,17 +1,23 @@
 {
   "name": "autolinks",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Automatically turn URL's into links",
   "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
+  "contributors": [
+    "Linus Unnebäck <linus@folkdatorn.se>"
+  ],
   "main": "./autolinks.js",
   "bin": {
     "autolinks": "./bin/autolinks.js"
   },
   "scripts": {
-    "test": "for f in test/*; do echo \"$f\"; node \"$f\" || exit 1; done; echo Passed; exit 0"
+    "test": "mocha"
   },
   "repository": "git://github.com/bahamas10/node-autolinks.git",
   "homepage": "https://github.com/bahamas10/node-autolinks",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  }
 }
