@@ -8,7 +8,7 @@
     "autolinks": "./bin/autolinks.js"
   },
   "scripts": {
-    "test": "for f in test/*; do echo \"$f\"; node \"$f\" || exit 1; done; echo Passed; exit 0"
+    "test": "mocha"
   },
   "repository": "git://github.com/bahamas10/node-autolinks.git",
   "homepage": "https://github.com/bahamas10/node-autolinks",
