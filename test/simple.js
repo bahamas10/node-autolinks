@@ -54,6 +54,11 @@ var data = [
   input: 'a relative link inside tags <www.google.com>.',
   html: 'a relative link inside tags <<a href="http://www.google.com">www.google.com</a>>.',
   markdown: 'a relative link inside tags <[www.google.com](http://www.google.com)>.'
+},
+
+{
+  input: 'a link http://google.com',
+  custom: 'a link (TITLE http://google.com URL http://google.com)'
 }];
 
 describe('autolinks', function () {
@@ -71,18 +76,27 @@ describe('autolinks', function () {
     assert.equal(output, expected);
   });
 
-  var formats = ['html', 'markdown'];
+  var formats = ['html', 'markdown', 'custom'];
+  var formatArgument = {
+    html: 'html',
+    markdown: 'markdown',
+    custom: function (title, url) {
+      return '(TITLE ' + title + ' URL ' + url + ')';
+    }
+  }
 
   formats.forEach(function (format) {
     describe('#' + format, function () {
 
       data.forEach(function (testCase) {
-        it('should parse ' + testCase.input, function () {
+        if (testCase.hasOwnProperty(format)) {
+          it('should parse ' + testCase.input, function () {
 
-          var output = autolinks(testCase.input, format);
-          assert.equal(output, testCase[format]);
+            var output = autolinks(testCase.input, formatArgument[format]);
+            assert.equal(output, testCase[format]);
 
-        });
+          });
+        }
       });
 
     });
