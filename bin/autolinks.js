@@ -16,7 +16,7 @@ if (arg === '-h' || arg === 'help' || arg === 'formats') {
       'Pipe data in to be auto linked over stdin',
       '',
       'Formats: (html is assumed)',
-      '  ' + formats.join(', ')
+      '  ' + autolinks.supportedFormats.join(', ')
       ].join('\n'));
   process.exit(0);
 }

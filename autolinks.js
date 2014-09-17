@@ -21,6 +21,7 @@ var formats = {
 };
 
 module.exports = autolinks;
+module.exports.supportedFormats = Object.keys(formats);
 
 function autolinks(s, format) {
   var fn;
