@@ -8,7 +8,7 @@
  */
 
 var URIre = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
-var incompleteURIre = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+var incompleteURIre = /(^|[^\/])(www\.[^\s)>]+(\b|$))/gim;
 var mailre = /\w+@[a-zA-Z_]+?(?:\.[a-zA-Z]{2,6})+/gim;
 
 var formats = ['markdown', 'html'];

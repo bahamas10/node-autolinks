@@ -2,7 +2,11 @@
 var assert = require('assert');
 var autolinks = require('../');
 
-var data = [{
+var data = [
+
+/*** General ***/
+
+{
   input: 'no change',
   html: 'no change',
   markdown: 'no change'
@@ -18,6 +22,38 @@ var data = [{
   input: 'a mailto link for dave@daveeddy.com here',
   html: 'a mailto link for <a href="mailto:dave@daveeddy.com">dave@daveeddy.com</a> here',
   markdown: 'a mailto link for [dave@daveeddy.com](mailto:dave@daveeddy.com) here'
+},
+
+/*** Parantheses ***/
+
+{
+  input: 'a mailto inside parentheses (dave@daveeddy.com).',
+  html: 'a mailto inside parentheses (<a href="mailto:dave@daveeddy.com">dave@daveeddy.com</a>).',
+  markdown: 'a mailto inside parentheses ([dave@daveeddy.com](mailto:dave@daveeddy.com)).'
+},{
+  input: 'a link inside parentheses (http://google.com).',
+  html: 'a link inside parentheses (<a href="http://google.com">http://google.com</a>).',
+  markdown: 'a link inside parentheses ([http://google.com](http://google.com)).'
+},{
+  input: 'a relative link inside parentheses (www.google.com).',
+  html: 'a relative link inside parentheses (<a href="http://www.google.com">www.google.com</a>).',
+  markdown: 'a relative link inside parentheses ([www.google.com](http://www.google.com)).'
+},
+
+/*** Tags ***/
+
+{
+  input: 'a mailto inside tags <dave@daveeddy.com>.',
+  html: 'a mailto inside tags <<a href="mailto:dave@daveeddy.com">dave@daveeddy.com</a>>.',
+  markdown: 'a mailto inside tags <[dave@daveeddy.com](mailto:dave@daveeddy.com)>.'
+},{
+  input: 'a link inside tags <http://google.com>.',
+  html: 'a link inside tags <<a href="http://google.com">http://google.com</a>>.',
+  markdown: 'a link inside tags <[http://google.com](http://google.com)>.'
+},{
+  input: 'a relative link inside tags <www.google.com>.',
+  html: 'a relative link inside tags <<a href="http://www.google.com">www.google.com</a>>.',
+  markdown: 'a relative link inside tags <[www.google.com](http://www.google.com)>.'
 }];
 
 describe('autolinks', function () {
