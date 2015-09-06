@@ -1,7 +1,7 @@
 autolinks
 =========
 
-Automatically turn URL's into links
+Automatically turn URLs into links
 
 Installation
 ------------
