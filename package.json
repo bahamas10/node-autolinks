@@ -16,7 +16,9 @@
   "repository": "git://github.com/bahamas10/node-autolinks.git",
   "homepage": "https://github.com/bahamas10/node-autolinks",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "escape-html": "^1.0.3"
+  },
   "devDependencies": {
     "mocha": "^1.21.4"
   }
