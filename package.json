@@ -1,10 +1,11 @@
 {
   "name": "autolinks",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Automatically turn URL's into links",
   "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
   "contributors": [
-    "Linus Unnebäck <linus@folkdatorn.se>"
+    "Linus Unnebäck <linus@folkdatorn.se>",
+    "Dionysis Zindros <dionyziz@gmail.com>"
   ],
   "main": "./autolinks.js",
   "bin": {
