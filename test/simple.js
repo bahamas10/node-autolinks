@@ -87,6 +87,25 @@ describe('autolinks', function () {
     assert.equal(output, expected);
   });
 
+  it('should allow setting custom HTML attributes', function () {
+    var output = autolinks('http://test.com/', 'html', {
+      target: '_blank',
+      rel: 'nofollow'
+    });
+    var expected = '<a target="_blank" rel="nofollow" href="http://test.com/">http://test.com/</a>';
+
+    assert.equal(output, expected);
+  });
+
+  it('should escape HTML attributes', function () {
+    var output = autolinks('http://test.com/', 'html', {
+      title: 'A "test"'
+    });
+    var expected = '<a title="A &quot;test&quot;" href="http://test.com/">http://test.com/</a>';
+
+    assert.equal(output, expected);
+  });
+
   it('should expose list of supported formats', function () {
     var actual = autolinks.supportedFormats;
     var expected = ['html', 'markdown'];
