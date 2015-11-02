@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Automatically turn URL's into links
  *
